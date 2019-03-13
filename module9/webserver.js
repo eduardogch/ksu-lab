@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser  = require('body-parser');
 const app = express();
+const port = 8000
 // use the following code on any request that matches the specified mount path
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -30,6 +31,8 @@ app.post('/students', (req, res, next) => {
   //sent an acknowledgment back to caller
   res.status(201).json('Post successful');
 });
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 //to use this middleware in other parts of the application
 module.exports=app;

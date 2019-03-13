@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <div>
+    <ul *ngFor ="let student of students let i = index">
+      <li> {{student.id}}: {{student.firstName}} {{student.lastName}} (index {{i}})</li>
+    </ul>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

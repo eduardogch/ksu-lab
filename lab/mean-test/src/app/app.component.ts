@@ -1,19 +1,26 @@
 import { Component } from '@angular/core';
 
+//Two-way binding
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+            <h4>NgIf</h4>
+            <tr *ngFor="let policy of policies; let i = index">
+                <td>Index: {{i}}</td>
+                <td>{{policy.name}}</td>
+            </tr>
+            `
 })
+
 export class AppComponent {
-  title = 'mean-test';
-  today: number = Date.now();
-  powers = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
-  // model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
-  submitted = false;
-  onSubmit() { this.submitted = true; }
-  // get diagnostic() { return JSON.stringify(this.model); }
+  policies: any[] = [
+    {id: 0, name: "policy001"},
+    {id: 2, name: "policy002"},
+    {id: 3, name: "policy003"},
+    {id: 4, name: "policy004"},
+    {id: 5, name: "policy005"},
+  ];
 }
 
-model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+
+

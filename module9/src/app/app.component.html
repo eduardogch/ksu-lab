@@ -4,9 +4,24 @@
     Welcome to {{ title }}!
   </h1>
   <div>
-    <ul *ngFor ="let student of students let i = index">
-      <li> {{student.id}}: {{student.firstName}} {{student.lastName}} (index {{i}})</li>
+    <ul *ngFor ="let msg of messages let i = index">
+      <li> {{msg.id}}: {{msg.social}} {{msg.message}} (index {{i}})</li>
     </ul>
+
+    <h3>Submit social network Form</h3>
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+    <mat-form-field >
+      <input matInput placeholder="Social Network" id="social" name="social" >
+    </mat-form-field>
+
+    <mat-form-field >
+      <input matInput placeholder="Message to send:" id="message" name="message" >
+    </mat-form-field>
+
+    <p>
+      <button type="submit" mat-flat-button color="accent">Submit</button>
+    </p>
+  </form>
   </div>
 </div>
 

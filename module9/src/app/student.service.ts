@@ -12,12 +12,12 @@ export class StudentService {
 
     // Uses http.get() to load data
     getStudents() {
-        return this.http.get('http://localhost:8000/students');
+        return this.http.get('http://localhost:8000/messages');
     }
 
     // Uses http.post() to post data
-    addStudents(firstName: string, lastName: string) {
-      this.http.post('http://localhost:8000/students',{ firstName, lastName })
+    addStudents(social: string, message: string) {
+      this.http.post('http://localhost:8000/messages',{ social, message })
     .subscribe((responseData) => {
         console.log(responseData);
       });

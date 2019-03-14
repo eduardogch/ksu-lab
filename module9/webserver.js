@@ -16,19 +16,22 @@ app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
    next();
 });
-app.get('/students', (req, res, next) => {
-  const students = [
-    { "id" : "1", "firstName" : "John" , "lastName" : "Dow" },
-    { "id" : "2", "firstName" : "Ann" , "lastName" : "Smith" },
-    { "id" : "3", "firstName" : "Joan" , "lastName" : "Doe" }];
+app.get('/messages', (req, res, next) => {
+  const messages = [
+    { "id" : "1", social : "Twitter" , message : "Hello world Twitter" },
+    { "id" : "2", social : "Facebook" , message : "Hello world Facebook" },
+    { "id" : "3", social : "Instagram" , message : "Hello world Instagram" }];
   //send the array as the response
-   res.json(students);
+
+  console.log('Twitter : Hello world Twitter')
+   res.json(messages);
 });
 
-app.post('/students', (req, res, next) => {
-  const student = req.body;
-  console.log(student.firstName + " " + student.lastName);
+app.post('/messages', (req, res, next) => {
+  const msg = req.body;
+  console.log(msg.social + " " + msg.lastName);
   //sent an acknowledgment back to caller
+
   res.status(201).json('Post successful');
 });
 

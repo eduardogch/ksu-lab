@@ -8,13 +8,14 @@ import { StudentService } from './student.service'
 })
 export class AppComponent implements OnInit {
 
-  title ='module9';
+  title ='Social Network';
   //declare variable to hold response and make it public to be accessible from components.html
   public students;
   //initialize the call using StudentService
   constructor(private _myService: StudentService) { }
   ngOnInit() {
     this.getStudents();
+
   }
   //method called OnInit
   getStudents() {

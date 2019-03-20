@@ -12,15 +12,23 @@ export class StudentService {
 
     // Uses http.get() to load data
     getStudents() {
-        return this.http.get('http://localhost:8000/messages');
+        return this.http.get('http://localhost:8000/students');
     }
 
     // Uses http.post() to post data
     addStudents(social: string, message: string) {
-      this.http.post('http://localhost:8000/messages',{ social, message })
+      this.http.post('http://localhost:8000/students',{ social, message })
     .subscribe((responseData) => {
         console.log(responseData);
       });
   }
+
+  deleteStudent(studentId: string) {
+    this.http.delete("http://localhost:8000/students/" + studentId)
+      .subscribe(() => {
+          console.log('Deleted: ' + studentId);
+      });
+  }
+
 
 }

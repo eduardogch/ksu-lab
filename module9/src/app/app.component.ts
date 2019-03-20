@@ -26,4 +26,9 @@ export class AppComponent implements OnInit {
       () => console.log('finished loading')
     );
   }
+
+  onDelete(studentId: string) {
+    this._myService.deleteStudent(studentId);
+  }
+
 }
